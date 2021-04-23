@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2021_04_23_172900) do
     t.integer "price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "sales_count"
+    t.integer "sales_count", default: 0
   end
 
 end
