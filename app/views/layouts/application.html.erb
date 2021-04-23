@@ -13,8 +13,23 @@
   </head>
 
   <body>
-    <div>
+    <center>
+      <h1>Stripe eCommerce app demo</h1>
+      <%= link_to "Source code", "https://github.com/eclectic-coding/rails_shoplify", target: "_blank" %>
+    </center>
+    <p class="notice" style="background-color: green;"><%= notice %></p>
+    <p class="alert" style="background-color: red;"><%= alert %></p>
+    <% if user_signed_in? %>
       <%= link_to "Products", products_path %>
+      <%= link_to current_user.email, edit_user_registration_path %>
+      <%= current_user.stripe_customer_id %>
+      <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+    <% else %>
+      <%= link_to "Sign Up", new_user_registration_path %>
+      <%= link_to "Login", new_user_session_path %>
+      <hr>
+    <% end %>
+    <div>
       <hr>
       <%= yield %>
     </div>
